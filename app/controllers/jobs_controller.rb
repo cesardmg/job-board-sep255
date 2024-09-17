@@ -41,6 +41,11 @@ class JobsController < ApplicationController
     redirect_to jobs_url, notice: "Job was successfully destroyed."
   end
 
+  def destroy_all
+    current_user.jobs.destroy_all
+    redirect_to edit_user_registration_path, notice: "All jobs have been deleted."
+  end
+
   private
 
   def job_params

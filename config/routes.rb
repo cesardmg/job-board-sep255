@@ -15,4 +15,7 @@ Rails.application.routes.draw do
 
   # # Defines the root path route ("/")
   # # root "posts#index"
+
+  delete "delete_all_posts", to: "posts#destroy_all"
+  delete "delete_all_jobs", to: "jobs#destroy_all"
 end
