@@ -2,6 +2,10 @@
   <%= render 'shared/navbar' %>
 <% end %>
 
-<h1 class="mb-4 text-2xl font-bold"><%= action_name.capitalize %> Job</h1>
-<%= render 'form', job: @job %>
-<%= link_to 'Back', jobs_path, class: 'text-blue-500 hover:underline' %>
+<div class="container px-4 py-8 mx-auto">
+  <div class="max-w-2xl mx-auto">
+    <h1 class="mb-6 text-3xl font-bold text-gray-800">New Job</h1>
+    <%= render 'form', job: @job %>
+    <%= link_to 'Back', jobs_path, class: 'mt-4 inline-block text-blue-500 hover:underline' %>
+  </div>
+</div>

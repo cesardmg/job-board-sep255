@@ -1,8 +1,8 @@
-<%= form_with(model: job, local: true) do |form| %>
+<%= form_with(model: job, local: true, class: "w-full") do |form| %>
   <% if job.errors.any? %>
     <div class="px-4 py-3 mb-4 text-red-700 bg-red-100 border border-red-400 rounded">
-      <strong class="font-bold"><%= pluralize(job.errors.count, "error") %>:</strong>
-      <ul>
+      <h2 class="mb-2 font-bold"><%= pluralize(job.errors.count, "error") %> prohibited this job from being saved:</h2>
+      <ul class="list-disc list-inside">
         <% job.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
@@ -11,24 +11,26 @@
   <% end %>
 
   <div class="mb-4">
-    <%= form.label :title, class: 'block text-gray-700' %>
-    <%= form.text_field :title, class: 'w-full px-3 py-2 border rounded' %>
+    <%= form.label :title, class: "block text-gray-700 font-bold mb-2" %>
+    <%= form.text_field :title, class: "w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" %>
   </div>
 
   <div class="mb-4">
-    <%= form.label :company, class: 'block text-gray-700' %>
-    <%= form.text_field :company, class: 'w-full px-3 py-2 border rounded' %>
+    <%= form.label :company, class: "block text-gray-700 font-bold mb-2" %>
+    <%= form.text_field :company, class: "w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" %>
   </div>
 
   <div class="mb-4">
-    <%= form.label :location, class: 'block text-gray-700' %>
-    <%= form.text_field :location, class: 'w-full px-3 py-2 border rounded' %>
+    <%= form.label :location, class: "block text-gray-700 font-bold mb-2" %>
+    <%= form.text_field :location, class: "w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" %>
   </div>
 
   <div class="mb-4">
-    <%= form.label :description, class: 'block text-gray-700' %>
-    <%= form.text_area :description, class: 'w-full px-3 py-2 border rounded', rows: 6 %>
+    <%= form.label :description, class: "block text-gray-700 font-bold mb-2" %>
+    <%= form.text_area :description, rows: 6, class: "w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" %>
   </div>
 
-  <%= form.submit class: 'bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded' %>
+  <div class="mt-6">
+    <%= form.submit "Create Job", class: "bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-300" %>
+  </div>
 <% end %>
