@@ -19,7 +19,8 @@
   </head>
 
   <body>
-    <main class="container flex flex-col px-5 mx-auto mt-28">
+    <%= yield :navbar %>
+    <main class="container px-4 mx-auto mt-8">
       <%= yield %>
     </main>
   </body>
