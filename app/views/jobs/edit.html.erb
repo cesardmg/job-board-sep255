@@ -1,3 +1,7 @@
-<h1 class="mb-4 text-2xl font-bold">Edit Job</h1>
+<% content_for :navbar do %>
+  <%= render 'shared/navbar' %>
+<% end %>
+
+<h1 class="mb-4 text-2xl font-bold"><%= action_name.capitalize %> Job</h1>
 <%= render 'form', job: @job %>
 <%= link_to 'Back', job_path(@job), class: 'text-blue-500 hover:underline' %>

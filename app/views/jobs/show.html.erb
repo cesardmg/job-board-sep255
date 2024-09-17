@@ -1,4 +1,8 @@
-<h1 class="mb-4 text-3xl font-bold"><%= @job.title %></h1>
+<% content_for :navbar do %>
+  <%= render 'shared/navbar' %>
+<% end %>
+
+<h1 class="mb-4 text-2xl font-bold"><%= @job.title %></h1>
 <p class="mb-2 text-xl"><%= @job.company %> - <%= @job.location %></p>
 <div class="prose">
   <%= simple_format(@job.description) %>
