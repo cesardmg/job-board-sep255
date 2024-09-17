@@ -43,8 +43,30 @@
     <h3 class="mb-4 text-lg font-medium text-gray-900">Your Jobs</h3>
     <p class="mb-4 text-sm text-gray-600">Total jobs: <%= current_user.jobs.count %></p>
     <%= button_to "Delete All Jobs", delete_all_jobs_path, method: :delete, 
-        data: { confirm: "Are you sure you want to delete all your jobs? This action cannot be undone." }, 
+        data: { controller: "confirmation", action: "confirmation#showModal" },
         class: "w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500" %>
+  </div>
+
+  <!-- Add this modal at the end of the file -->
+  <div id="confirmationModal" class="fixed inset-0 hidden w-full h-full overflow-y-auto bg-gray-600 bg-opacity-50" data-controller="confirmation">
+    <div class="relative p-5 mx-auto bg-white border rounded-md shadow-lg top-20 w-96">
+      <div class="mt-3 text-center">
+        <h3 class="text-lg font-medium leading-6 text-gray-900">Delete All Jobs</h3>
+        <div class="py-3 mt-2 px-7">
+          <p class="text-sm text-gray-500">
+            Are you sure you want to delete all your jobs? This action cannot be undone.
+          </p>
+        </div>
+        <div class="items-center px-4 py-3">
+          <%= button_to "Confirm", delete_all_jobs_path, method: :delete, 
+              class: "px-4 py-2 bg-red-500 text-white text-base font-medium rounded-md w-full shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-300",
+              data: { action: "confirmation#hideModal" } %>
+          <button class="w-full px-4 py-2 mt-3 text-base font-medium text-gray-800 bg-gray-300 rounded-md shadow-sm hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-300" data-action="confirmation#hideModal">
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="pt-6 mt-10 border-t border-gray-200">
