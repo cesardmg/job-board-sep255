@@ -9,30 +9,30 @@
       </div>
       
       <!-- Hamburger menu button for mobile -->
-      <button class="md:hidden" id="navbar-toggle">
+      <button class="z-50 md:hidden" id="navbar-toggle">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
         </svg>
       </button>
       
       <!-- Navigation and buttons -->
-      <div class="items-center justify-between hidden md:flex" id="navbar-menu">
-        <nav>
-          <ul class="flex flex-col md:flex-row">
-            <li>
-              <%= link_to "Home", "#", class: "block px-4 py-2 text-base font-medium text-gray-700 hover:text-gray-900" %>
+      <div class="fixed inset-y-0 right-0 items-center justify-between w-full transition duration-300 ease-in-out transform translate-x-full bg-white md:w-auto md:bg-transparent md:translate-x-0 md:relative md:flex" id="navbar-menu">
+        <nav class="flex flex-col justify-center h-full">
+          <ul class="flex flex-col items-center md:flex-row">
+            <li class="my-4 md:my-0">
+              <%= link_to "Home", "#", class: "block px-4 py-2 text-xl md:text-base font-medium text-gray-700 hover:text-gray-900" %>
             </li>
-            <li>
-              <%= link_to "Jobs", jobs_path, class: "block px-4 py-2 text-base font-medium text-gray-700 hover:text-gray-900" %>
+            <li class="my-4 md:my-0">
+              <%= link_to "Jobs", jobs_path, class: "block px-4 py-2 text-xl md:text-base font-medium text-gray-700 hover:text-gray-900" %>
             </li>
-            <li>
-              <%= link_to "About", "#", class: "block px-4 py-2 text-base font-medium text-gray-700 hover:text-gray-900" %>
+            <li class="my-4 md:my-0">
+              <%= link_to "About", "#", class: "block px-4 py-2 text-xl md:text-base font-medium text-gray-700 hover:text-gray-900" %>
             </li>
           </ul>
         </nav>
-        <div class="flex flex-col mt-4 md:flex-row md:ml-6 md:mt-0">
-          <%= link_to "Login", "#", class: "block px-4 py-2 text-base font-medium text-gray-700 hover:text-gray-900" %>
-          <%= link_to "Sign Up", "#", class: "block px-4 py-2 mt-2 md:mt-0 text-base font-medium text-white bg-blue-600 rounded hover:bg-blue-700" %>
+        <div class="flex flex-col items-center mt-4 md:flex-row md:ml-6 md:mt-0">
+          <%= link_to "Login", "#", class: "block px-4 py-2 my-2 md:my-0 text-xl md:text-base font-medium text-gray-700 hover:text-gray-900" %>
+          <%= link_to "Sign Up", "#", class: "block px-4 py-2 my-2 md:my-0 text-xl md:text-base font-medium text-white bg-blue-600 rounded hover:bg-blue-700" %>
         </div>
       </div>
     </div>
@@ -46,7 +46,7 @@
     const navbarMenu = document.getElementById('navbar-menu');
 
     navbarToggle.addEventListener('click', function() {
-      navbarMenu.classList.toggle('hidden');
+      navbarMenu.classList.toggle('translate-x-full');
     });
   });
 </script>
