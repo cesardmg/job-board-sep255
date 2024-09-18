@@ -47,12 +47,25 @@
 <!-- ====== Navbar Section End -->
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const navbarToggle = document.getElementById('navbar-toggle');
+  function toggleNavbarMenu() {
     const navbarMenu = document.getElementById('navbar-menu');
+    navbarMenu.classList.toggle('translate-x-full');
+  }
 
-    navbarToggle.addEventListener('click', function() {
-      navbarMenu.classList.toggle('translate-x-full');
-    });
+  document.addEventListener('turbo:load', function() {
+    const navbarToggle = document.getElementById('navbar-toggle');
+    if (navbarToggle) {
+      navbarToggle.addEventListener('click', toggleNavbarMenu);
+    }
+  });
+
+  // Fallback for initial page load
+  document.addEventListener('DOMContentLoaded', function() {
+    if (typeof Turbo === 'undefined') {
+      const navbarToggle = document.getElementById('navbar-toggle');
+      if (navbarToggle) {
+        navbarToggle.addEventListener('click', toggleNavbarMenu);
+      }
+    }
   });
 </script>
